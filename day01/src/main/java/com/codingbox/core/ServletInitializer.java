@@ -1,4 +1,4 @@
-package com.kic.web;
+package com.codingbox.core;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;

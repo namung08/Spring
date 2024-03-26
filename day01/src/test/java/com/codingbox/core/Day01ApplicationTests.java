@@ -1,4 +1,4 @@
-package com.kic.web;
+package com.codingbox.core;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
