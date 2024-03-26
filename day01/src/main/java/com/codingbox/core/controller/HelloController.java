@@ -23,7 +23,7 @@ public class HelloController {
     @GetMapping("/hello-mvc")
     public String hellomvc(Model model) {
         model.addAttribute("name","이상준");
-        return "forward:/hello-mvc";
+        return "/hello-mvc";
     }
 
 }
