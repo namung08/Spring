@@ -10,7 +10,7 @@ public class HelloController {
     @GetMapping("hello") //주소에서 /hello 로 매핑이 됨
     public String hello(Model model) {
         model.addAttribute("data","firstData");
-        return "forward:/hello";
+        return "/hello";
     }
 
     /*
