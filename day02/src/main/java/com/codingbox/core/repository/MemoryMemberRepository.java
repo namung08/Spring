@@ -1,6 +1,6 @@
 package com.codingbox.core.repository;
 
-import com.codingbox.core.member.Member;
+import com.codingbox.core.dto.Member;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;

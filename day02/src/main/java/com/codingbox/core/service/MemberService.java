@@ -1,6 +1,6 @@
 package com.codingbox.core.service;
 
-import com.codingbox.core.member.Member;
+import com.codingbox.core.dto.Member;
 import com.codingbox.core.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

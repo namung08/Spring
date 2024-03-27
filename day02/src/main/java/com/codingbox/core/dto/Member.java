@@ -1,4 +1,4 @@
-package com.codingbox.core.member;
+package com.codingbox.core.dto;
 
 public class Member {
     private int id;
