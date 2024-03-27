@@ -1,12 +1,14 @@
 package com.codingbox.core.repository;
 
-import com.codingbox.core.member.Member;
+import com.codingbox.core.dto.Member;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Repository
 public class MemoryMemberRepository implements MemberRepository{
 
     // 메모리를 사용
