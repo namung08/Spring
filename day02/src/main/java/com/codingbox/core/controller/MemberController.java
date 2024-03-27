@@ -4,6 +4,7 @@ package com.codingbox.core.controller;
 import com.codingbox.core.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class MemberController {
@@ -15,10 +16,6 @@ public class MemberController {
     // 스프링 스럽게 작업하기
     // service는 Spring Container에 하나만 생성 및 등록해서 같이 공유해서 쓸 수 있다.
     private final MemberService memberService;
-    @Autowired
-    public MemberController(MemberService memberService) {
-        this.memberService = memberService;
-    }
     /*
     멤버 컨트롤러가 생성될때
     생성자를 호출해준다
@@ -28,6 +25,16 @@ public class MemberController {
     서버 기동시 연결 실패 에러를 발생시켜준다
     -> 기존은 테스트를 통해서만 service가 오류난다는 것을 알 수 있다.
      */
+    @Autowired
+    public MemberController(MemberService memberService) {
+        this.memberService = memberService;
+    }
 
-
+    // url -> members/new
+    // 화면 return /members/createMemberForm.html
+    @GetMapping("/members/new")
+    public String createMember() {
+        return "/members/createMemberForm";
+    }
 }
+
