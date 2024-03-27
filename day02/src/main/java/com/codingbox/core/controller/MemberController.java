@@ -1,11 +1,16 @@
 package com.codingbox.core.controller;
 
 
+import com.codingbox.core.dto.Member;
+import com.codingbox.core.dto.MemberFormDTO;
 import com.codingbox.core.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.List;
 
 @Controller
 public class MemberController {
@@ -38,9 +43,21 @@ public class MemberController {
         return "/members/createMemberForm";
     }
     @PostMapping(value = "/members/new")
-    public String create() {
-
-        return "/members/createMemberForm";
+    public String create(MemberFormDTO formDTO) {
+        Member member = new Member();
+        member.setName(formDTO.getName());
+        memberService.join(member);
+        // 홈 화면으로 이동
+        // forward 방식이 아닌 redirect 방식으로 이동해야함
+        return "redirect:/";
+    }
+    // url : members
+    // return  members/memberList
+    @GetMapping("members")
+    public String listMember(Model model) {
+        List<Member> members = memberService.findMembers();
+        model.addAttribute("members",members);
+        return "members/memberList";
     }
 }
 
