@@ -1,6 +1,12 @@
 package com.codingbox.core.dto;
 
+import jakarta.persistence.*;
+
+@Entity
 public class Member {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seq")
+    @SequenceGenerator(name = "seq",sequenceName = "member_seq")
     private int id;
     private String name;
 
