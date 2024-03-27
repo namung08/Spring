@@ -5,6 +5,7 @@ import com.codingbox.core.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class MemberController {
@@ -32,8 +33,13 @@ public class MemberController {
 
     // url -> members/new
     // 화면 return /members/createMemberForm.html
-    @GetMapping("/members/new")
-    public String createMember() {
+    @GetMapping(value = "/members/new")
+    public String createForm() {
+        return "/members/createMemberForm";
+    }
+    @PostMapping(value = "/members/new")
+    public String create() {
+
         return "/members/createMemberForm";
     }
 }
