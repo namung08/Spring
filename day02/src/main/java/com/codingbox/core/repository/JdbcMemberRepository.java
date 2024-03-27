@@ -1,6 +1,7 @@
 package com.codingbox.core.repository;
 
 import com.codingbox.core.dto.Member;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
@@ -20,6 +21,7 @@ public class JdbcMemberRepository implements MemberRepository{
     private ResultSet rs = null;
     private final DataSource dataSource;
     // 생성자
+    @Autowired
     public JdbcMemberRepository(DataSource dataSource) {
         this.dataSource = dataSource;
     }
