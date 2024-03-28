@@ -1,4 +1,4 @@
-POST localhost:8088/request-body-json-v5
+POST localhost:8088/response-view-v2
 Content-Type: application/json
 
 {
