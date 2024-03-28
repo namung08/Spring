@@ -42,4 +42,9 @@ public class BasicController {
 
         return "basic/variable";
     }
+    @GetMapping("/link")
+    public String link(Model model) {
+
+        return "basic/link";
+    }
 }
