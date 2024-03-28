@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.io.IOException;
+import java.util.Map;
+import java.util.Objects;
 
 @Controller
 public class RequestParamController {
@@ -59,11 +61,41 @@ public class RequestParamController {
         System.out.println("age : " + age);
         return "ok";
     }
+
+    /*  @RequestParam.required 옵션
+        /request-param-required -> username이 없으므로 예외
+        /request-param-required?username -> 빈 문자로 통과
+        /request-param-required -> int age 주의
+                                    null 값에 대한 대체 때문에 Integer 로 작성
+                                    defaultValue 사용
+        required -> true 가 기본 값
+    * */
     @ResponseBody
     @RequestMapping("/request-param-required")
-    public String requestparamrequired(String username, int age){
+    public String requestparamrequired(@RequestParam(required = true) String username, @RequestParam(required = false) Integer age){
         System.out.println("username : " + username);
         System.out.println("age : " + age);
+        return "ok";
+    }
+    /*
+    * @RequestParam
+    * defaultValue 옵션 사용시
+    *   기본값 세팅
+    *   빈 문자열인 경우에도 적용
+    *   이미 기본 값이 세팅이 되었기 때문에 required 옵션이 의미가 없다
+    * */
+    @ResponseBody
+    @RequestMapping("/request-param-default")
+    public String requestparamdefault(@RequestParam(required = true,defaultValue = "guest") String username, @RequestParam(required = false,defaultValue = "-1") Integer age){
+        System.out.println("username : " + username);
+        System.out.println("age : " + age);
+        return "ok";
+    }
+    @ResponseBody
+    @RequestMapping("/request-param-map")
+    public String requestparammap(@RequestParam Map<String, Object> paramMap){
+        System.out.println("username : " + paramMap.get("username"));
+        System.out.println("age : " + paramMap.get("age"));
         return "ok";
     }
 
