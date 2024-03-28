@@ -4,6 +4,7 @@ import com.codingbox.core3.web.dto.HelloData;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -105,6 +106,35 @@ public class RequestParamController {
         HelloData helloData = new HelloData();
         helloData.setAge(age);
         helloData.setUsername(username);
+        System.out.println("username : " + helloData.getUsername());
+        System.out.println("age : " + helloData.getAge());
+        return "ok";
+    }
+
+    /*
+    @ModelAttribute 사용
+    * */
+    @ResponseBody
+    @RequestMapping("/model-attribute-v2")
+    public String modelAttributeV2(@ModelAttribute HelloData helloData){
+        System.out.println("username : " + helloData.getUsername());
+        System.out.println("age : " + helloData.getAge());
+        System.out.println("hellodata : " + helloData.toString());
+        return "ok";
+    }
+
+    /*
+    * @ModelAttribute, @RequestParam  생략가능
+    * 혼란 발생 가능
+    * 단순 타입이면 @RequestParam이 생략되었다고 판단
+    * dto 객체가 파라미터에 있으면 -> @modelAttribute이 생략 되었다고 판단
+    * */
+    @ResponseBody
+    @RequestMapping("/model-attribute-v3")
+    public String modelAttributeV3(@ModelAttribute HelloData helloData){
+        System.out.println("username : " + helloData.getUsername());
+        System.out.println("age : " + helloData.getAge());
+        System.out.println("hellodata : " + helloData.toString());
         return "ok";
     }
 
