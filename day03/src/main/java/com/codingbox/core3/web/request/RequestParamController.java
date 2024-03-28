@@ -1,5 +1,6 @@
 package com.codingbox.core3.web.request;
 
+import com.codingbox.core3.web.dto.HelloData;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
@@ -96,6 +97,14 @@ public class RequestParamController {
     public String requestparammap(@RequestParam Map<String, Object> paramMap){
         System.out.println("username : " + paramMap.get("username"));
         System.out.println("age : " + paramMap.get("age"));
+        return "ok";
+    }
+    @ResponseBody
+    @RequestMapping("/model-attribute-v1")
+    public String modelAttributeV1(@RequestParam String username, @RequestParam int age){
+        HelloData helloData = new HelloData();
+        helloData.setAge(age);
+        helloData.setUsername(username);
         return "ok";
     }
 
