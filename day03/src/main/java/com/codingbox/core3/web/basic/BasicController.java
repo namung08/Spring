@@ -11,11 +11,11 @@ public class BasicController {
     @GetMapping("/text-basic")
     public String textBasic(Model model) {
         model.addAttribute("data", "Hello Spring");
-        return "basic.text-basic";
+        return "basic/text-basic";
     }
     @GetMapping("/basic/text-unescaped")
     public String textBasicUnescaped(Model model) {
         model.addAttribute("data", "Hello Spring");
-        return "basic.text-basic";
+        return "basic.text-unescaped";
     }
 }
