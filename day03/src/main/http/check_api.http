@@ -1,0 +1,7 @@
+POST localhost:8088/response-view-v2
+Content-Type: application/json
+
+{
+    "username": "hello",
+    "age": 20
+}
