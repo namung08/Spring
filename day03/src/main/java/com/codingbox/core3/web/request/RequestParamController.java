@@ -45,4 +45,26 @@ public class RequestParamController {
         return "ok";
     }
 
+    /*@RequestParam 생략가능
+    * -> String, int 등과 같은 단순 타입이면 생략 가능
+    * -------------------------------------------------
+    * 권장 X
+    * v2 버전을 추천함
+    * @RequestParam이 있으면 명확하게 요청 파라미터에서 데이터를 읽어온다는 것을 알 수 있다.
+    * */
+    @ResponseBody
+    @RequestMapping("/request-param-v4")
+    public String requestparamV4(String username, int age){
+        System.out.println("username : " + username);
+        System.out.println("age : " + age);
+        return "ok";
+    }
+    @ResponseBody
+    @RequestMapping("/request-param-required")
+    public String requestparamrequired(String username, int age){
+        System.out.println("username : " + username);
+        System.out.println("age : " + age);
+        return "ok";
+    }
+
 }
