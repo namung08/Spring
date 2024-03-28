@@ -15,7 +15,7 @@ public class ResponseViewController {
     }
 
     /*
-    @ResponseBody가 ㅇ벗으면 response/hello로 뷰 리졸버가 실행되어 뷰를 찾고 렌더링 한다.
+    @ResponseBody가 없으면 response/hello로 뷰 리졸버가 실행되어 뷰를 찾고 렌더링 한다.
     @ResponseBody가 있으면 뷰 리졸버를 실행하지 않고, http 메시지 바디에[ 직접 response/hello라는 문자가 입력, m
     * */
     @ResponseBody
