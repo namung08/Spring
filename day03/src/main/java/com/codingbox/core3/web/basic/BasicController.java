@@ -66,6 +66,13 @@ public class BasicController {
 		model.addAttribute("data","spring");
 		return "basic/operation";
 	}
+	@GetMapping("attribute")
+	public String attribute(Model model) {
+		model.addAttribute("nullData",null);
+		model.addAttribute("data","spring");
+		return "basic/attribute";
+	}
+
 }
 
 
