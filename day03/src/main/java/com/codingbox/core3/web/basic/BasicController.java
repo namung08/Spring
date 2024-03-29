@@ -70,6 +70,10 @@ public class BasicController {
 	public String attribute() {
 		return "basic/attribute";
 	}
+	@GetMapping("each")
+	public String each() {
+		return "basic/each";
+	}
 
 }
 
