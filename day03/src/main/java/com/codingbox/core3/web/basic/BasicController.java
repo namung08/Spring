@@ -84,6 +84,7 @@ public class BasicController {
 	}
 	@GetMapping("condition")
 	public String condition(Model model) {
+		addUsers(model);
 		return "basic/condition";
 	}
 
