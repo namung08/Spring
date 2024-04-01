@@ -1,13 +1,13 @@
-package com.codingbox.examination;
+package com.codingbox.test;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ExaminationApplication {
+public class TestApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ExaminationApplication.class, args);
+        SpringApplication.run(TestApplication.class, args);
     }
 
 }

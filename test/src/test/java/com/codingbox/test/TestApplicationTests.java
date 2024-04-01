@@ -1,10 +1,10 @@
-package com.codingbox.examination;
+package com.codingbox.test;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ExaminationApplicationTests {
+class TestApplicationTests {
 
     @Test
     void contextLoads() {
