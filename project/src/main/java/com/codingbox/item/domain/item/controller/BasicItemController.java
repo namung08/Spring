@@ -39,14 +39,15 @@ public class BasicItemController {
         model.addAttribute("item",item);
         return "basic/editForm";
     }
-    @GetMapping("/basic/items/{itemid}/update")
-    public String update(@PathVariable("itemid") Long itemid,@ModelAttribute("itme") Item item) {
-        itemRepository.update(itemid,item);
-        return "basic/item";
-    }
+
     @GetMapping("/add")
     public String add(Model model) {
         return "basic/addForm";
+    }
+    @PostMapping("/{itemid}/edit")
+    public String update(@PathVariable("itemid") Long itemid,@ModelAttribute("item") Item item) {
+        itemRepository.update(itemid,item);
+        return "redirect:/basic/items/{itemid}";
     }
 //    @PostMapping("/add")
     public String saveV1(@RequestParam String itemName,@RequestParam int price,
@@ -92,13 +93,16 @@ public class BasicItemController {
     model.addAttribute("item",item); 자동 추가
     가독성을 위해 적당이 줄이는 것을 권장
     * */
-    @PostMapping("/add")
+//    @PostMapping("/add")
     public String saveV4(Item item) {
         itemRepository.save(item);
         return "basic/item";
     }
-
-
+    @PostMapping("/add")
+    public String saveV5(Item item) {
+        itemRepository.save(item);
+        return "redirect:/basic/items/"+item.getId();
+    }
 
     // 테스트용 데이터 추가
     @PostConstruct
