@@ -7,9 +7,7 @@ import jakarta.annotation.PreDestroy;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,6 +26,27 @@ public class BasicItemController {
     @GetMapping("/{itemid}")
     public String item(@PathVariable Long itemid,Model model) {
         Item item = itemRepository.findById(itemid);
+        model.addAttribute("item",item);
+        return "basic/item";
+    }
+    @GetMapping("/{itemid}/edit")
+    public String edit(@PathVariable Long itemid,Model model) {
+        Item item = itemRepository.findById(itemid);
+        model.addAttribute("item",item);
+        return "basic/editForm";
+    }
+    @GetMapping("/add")
+    public String add(Model model) {
+        return "basic/addForm";
+    }
+    @PostMapping("/add")
+    public String save(@RequestParam String itemName,@RequestParam int price,
+                       @RequestParam int quantity,Model model) {
+        Item item = new Item();
+        item.setItemName(itemName);
+        item.setPrice(price);
+        item.setQuantity(quantity);
+        itemRepository.save(item);
         model.addAttribute("item",item);
         return "basic/item";
     }
