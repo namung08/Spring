@@ -1,7 +1,5 @@
-package com.codingbox.item.domain.item.controller;
+package com.codingbox.mylogin.domain.item;
 
-import com.codingbox.item.domain.item.Item;
-import com.codingbox.item.repository.ItemRepository;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
 import lombok.RequiredArgsConstructor;
