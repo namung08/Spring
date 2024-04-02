@@ -10,7 +10,6 @@ public class Item {
         this.itemName = itemName;
         this.price = price;
         this.quantity = quantity;
-        System.out.println("이거 넣는다"+itemName);
     }
 
     public Item() {
