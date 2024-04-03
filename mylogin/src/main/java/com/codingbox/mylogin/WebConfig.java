@@ -3,6 +3,7 @@ package com.codingbox.mylogin;
 import com.codingbox.mylogin.filter.LogFilter;
 import com.codingbox.mylogin.filter.LoginCheckFilter;
 import com.codingbox.mylogin.intercepter.LogInterceptor;
+import com.codingbox.mylogin.intercepter.LoginCheckIntercepter;
 import jakarta.servlet.Filter;
 import jakarta.servlet.FilterRegistration;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
@@ -42,5 +43,9 @@ public class WebConfig implements WebMvcConfigurer {
                 .addPathPatterns("/**")
                 // 제외 페이지
                 .excludePathPatterns("/css/**","/error");
+        registry.addInterceptor(new LoginCheckIntercepter())
+                .order(2)
+                .addPathPatterns("/**")
+                .excludePathPatterns("/**","/members/add","/login","/logout","/css/**");
     }
 }
