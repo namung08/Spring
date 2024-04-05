@@ -1,10 +1,10 @@
-package com.codingbox.jpa;
+package com.codingbox.jpaitem;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class JpaApplicationTests {
+class JpaitemApplicationTests {
 
 	@Test
 	void contextLoads() {

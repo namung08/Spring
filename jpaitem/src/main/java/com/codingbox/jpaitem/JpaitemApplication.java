@@ -1,13 +1,13 @@
-package com.codingbox.jpa;
+package com.codingbox.jpaitem;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class JpaApplication {
+public class JpaitemApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(JpaApplication.class, args);
+		SpringApplication.run(JpaitemApplication.class, args);
 	}
 
 }
