@@ -1,4 +1,4 @@
-package com.codingbox.jpaitem.domain;
+package com.codingbox.jpaitem.relration;
 
 
 import jakarta.persistence.Column;
@@ -9,18 +9,16 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-//@Entity
+@Entity
 @Getter @Setter
 @NoArgsConstructor
-public class OrderItem {
+public class Member {
     @Id
     @GeneratedValue
-    @Column(name = "ORDER_ITEM_ID")
+    @Column(name = "MEMBER_ID")
     private Long id;
-    @Column(name = "ORDER_ID")
-    private Long orderID;
-    @Column(name = "ITEM_ID")
-    private Long itemId;
-    private Integer orderPrice;
-    private Integer count;
+    @Column(name = "USERNAME")
+    private String name;
+    @Column(name = "TEAM_ID")
+    private Long teamId;
 }
