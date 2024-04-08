@@ -1,29 +1,26 @@
 package com.codingbox.jpaitem;
 
-import com.codingbox.jpaitem.relration.Member;
-import com.codingbox.jpaitem.relration.Team;
-import com.codingbox.jpaitem.relration.repository.TeamRepository;
-import com.codingbox.jpaitem.relration.repository.MemberRepository;
+import com.codingbox.jpaitem.domain.repository.ItemRepository;
+import com.codingbox.jpaitem.domain.repository.MemberRepository;
+import com.codingbox.jpaitem.domain.repository.OrderItemRepository;
+import com.codingbox.jpaitem.domain.repository.OrderRepository;
 import jakarta.transaction.Transactional;
-import org.hibernate.FlushMode;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
-
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
 
 @SpringBootTest
 @Transactional
 @Rollback(false)
 class JpaitemApplicationTests {
-	@Autowired
+//	@Autowired
+//	private MemberRepository memberRepository;
+//	@Autowired
+//	private TeamRepository teamRepository;
+	private ItemRepository itemRepository;
 	private MemberRepository memberRepository;
-	@Autowired
-	private TeamRepository teamRepository;
-
+	private OrderRepository orderRepository;
+	private OrderItemRepository orderItemRepository;
 	@Test
 	void contextLoads() {
 //		List<Member> list = memberRepository.findAll();
@@ -53,11 +50,14 @@ class JpaitemApplicationTests {
 //		}
 
 
-		Optional<Team> findTeam = teamRepository.findById(1L);
-		List<Member> members = findTeam.get().getMember();
-		for(Member m : members) {
-			System.out.println("m = "+ m.toString() );
-		}
+//		Optional<Team> findTeam = teamRepository.findById(1L);
+//		List<Member> members = findTeam.get().getMember();
+//		for(Member m : members) {
+//			System.out.println("m = "+ m.toString() );
+//		}
+//
+//	}
+		//04-08
 
 	}
 }

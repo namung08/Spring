@@ -1,15 +1,15 @@
-package com.codingbox.jpaitem.relration.repository;
-
-import com.codingbox.jpaitem.relration.Member;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.stereotype.Repository;
-
-import java.util.List;
-import java.util.Optional;
-
-@Repository
-public interface MemberRepository extends JpaRepository<Member,Long> {
-    @Query(value = "select m from Member m where m.MEMBER_ID =?",nativeQuery = true)
-    List<Member> findById(String id);
-}
+//package com.codingbox.jpaitem.relration.repository;
+//
+//import com.codingbox.jpaitem.relration.Member;
+//import org.springframework.data.jpa.repository.JpaRepository;
+//import org.springframework.data.jpa.repository.Query;
+//import org.springframework.stereotype.Repository;
+//
+//import java.util.List;
+//import java.util.Optional;
+//
+//@Repository
+//public interface MemberRepository extends JpaRepository<Member,Long> {
+//    @Query(value = "select m from Member m where m.MEMBER_ID =?",nativeQuery = true)
+//    List<Member> findById(String id);
+//}

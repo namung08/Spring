@@ -5,13 +5,11 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.data.jpa.repository.Query;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
-@Entity
+//@Entity
 @Getter @Setter
 @NoArgsConstructor
 public class Team {
