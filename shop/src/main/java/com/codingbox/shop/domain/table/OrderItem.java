@@ -1,26 +1,24 @@
-package com.codingbox.jpaitem.domain;
-
+package com.codingbox.shop.domain.table;
 
 import jakarta.persistence.*;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-//@Entity
+@Entity
 @Getter @Setter
-@NoArgsConstructor
 public class OrderItem {
     @Id
-    @GeneratedValue
     @Column(name = "ORDER_ITEM_ID")
+    @GeneratedValue
     private Long id;
+    private int orderPrice;
+    private int count;
+
     @ManyToOne
     @JoinColumn(name = "ORDER_ID")
     private Order order;
+
     @ManyToOne
     @JoinColumn(name = "ITEM_ID")
     private Item item;
-
-    private Integer orderPrice;
-    private Integer count;
 }

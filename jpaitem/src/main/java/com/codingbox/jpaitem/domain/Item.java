@@ -8,6 +8,8 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 //@Entity
 @Getter @Setter
@@ -21,6 +23,14 @@ public class Item {
     private String name;
     private Integer price;
     private Integer stockQuantity;
+
+    @OneToMany(mappedBy = "item")
+    private List<OrderItem> orderItems = new ArrayList<>();
+
+    public void addOrderItem(OrderItem orderItem) {
+        orderItem.setItem(this);
+        orderItems.add(orderItem);
+    }
 
     @CreationTimestamp
     private Timestamp regdate;

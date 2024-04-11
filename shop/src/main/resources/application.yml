@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: shop
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    url: jdbc:oracle:thin:@localhost:1521:xe
+    username: spring
+    password: spring
+  jpa:
+    hibernate:
+      ddl-auto: update
+    generate-ddl: true
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    database: oracle
+    database-platform: org.hibernate.dialect.OracleDialect
+
+# 주석 처리된 로깅 설정, 필요에 따라 주석 해제하여 사용
+#logging:
+#  level:
+#    org:
+#      hibernate:
+#        SQL: debug
+#        type: trace

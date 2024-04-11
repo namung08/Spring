@@ -1,29 +1,20 @@
 package com.codingbox.jpaitem;
 
-import com.codingbox.jpaitem.relration.Member;
-import com.codingbox.jpaitem.relration.Team;
-import com.codingbox.jpaitem.relration.repository.TeamRepository;
-import com.codingbox.jpaitem.relration.repository.MemberRepository;
+import com.codingbox.jpaitem.embeded.Address;
+import com.codingbox.jpaitem.embeded.Member;
+import com.codingbox.jpaitem.embeded.repository.MemberRepository;
 import jakarta.transaction.Transactional;
-import org.hibernate.FlushMode;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
-
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
 
 @SpringBootTest
 @Transactional
 @Rollback(false)
 class JpaitemApplicationTests {
 	@Autowired
-	private MemberRepository memberRepository;
-	@Autowired
-	private TeamRepository teamRepository;
-
+	MemberRepository memberRepository;
 	@Test
 	void contextLoads() {
 //		List<Member> list = memberRepository.findAll();
@@ -53,12 +44,29 @@ class JpaitemApplicationTests {
 //		}
 
 
-		Optional<Team> findTeam = teamRepository.findById(1L);
-		List<Member> members = findTeam.get().getMember();
-		for(Member m : members) {
-			System.out.println("m = "+ m.toString() );
-		}
-
+//		Optional<Team> findTeam = teamRepository.findById(1L);
+//		List<Member> members = findTeam.get().getMember();
+//		for(Member m : members) {
+//			System.out.println("m = "+ m.toString() );
+//		}
+//
+//	}
+		//04-08
+//		Member member = new Member();
+//		member.setName("user");
+//		member.setAddress(new Address("seoul","gangnam","123"));
+//		member.setPeriod(new Period(LocalDateTime.now(),LocalDateTime.now().plusDays(10)));
+//		memberRepository.save(member);
+		Address addr = new Address("서울","강남","123");
+		Member member = new Member();
+		member.setName("user1");
+		member.setAddress(addr);
+		memberRepository.save(member);
+		Member member1 = new Member();
+		Address copyaddr = new Address(addr.getCity(), addr.getStreet(), addr.getZipcode());
+		member1.setName("user2");
+		member1.setAddress(copyaddr);
+		memberRepository.save(member1);
 	}
 }
 
