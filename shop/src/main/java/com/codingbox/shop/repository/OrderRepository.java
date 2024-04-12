@@ -19,14 +19,11 @@ public class OrderRepository {
 
     // 검색, 전체 조회, QueryDSL - 실무에서 많이 사용
     public List<Order> findAll(OrderSearch search) {
-        return em.createQuery("select o from Order o", Order.class).getResultList();
+
+        return null;
     }
 
     public Order findById(Long id) {
         return em.find(Order.class, id);
-    }
-
-    public List<Order> findOrders(){
-        return null;
     }
 }
