@@ -41,14 +41,18 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td><a class="btn btn-danger" href="#">CANCEL</a>
+					<tr th:each="item:${orders}">
+						<td th:text="${item.id}"></td>
+						<td th:text="${item.member.name}"></td>
+						<td th:text="${item.order_items[0].item.name}"></td>
+						<td th:text="${item.order_items[0].price}"></td>
+						<td th:text="${item.order_items[0].count}"></td>
+						<td th:text="${item.order_status}"></td>
+						<td th:text="${item.order_date}"></td>
+						<td><a class="btn btn-danger" href="#"
+							th:if="${item.order_status.name()=='ORDER'}"
+							   th:href="'javascript:cancle('+${item.id}+')'"
+						>CANCEL</a>
 						</td>
 					</tr>
 
@@ -63,6 +67,13 @@
 
 </body>
 <script>
-
+	function cancle(id){
+		// alert(id);
+		let form = document.createElement("form");
+		form.setAttribute("method","post");
+		form.setAttribute("action","/orders/"+id+"/cancel");
+		document.body.appendChild(form);
+		form.submit();
+	}
 </script>
 </html>

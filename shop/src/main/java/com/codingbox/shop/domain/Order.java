@@ -25,7 +25,7 @@ public class Order {
     private OrderStatus order_status;
 
     @OneToMany(mappedBy = "order",cascade = CascadeType.ALL)
-    private List<OrderItem> order_items = new ArrayList<OrderItem>();
+    private List<OrderItem> order_items = new ArrayList<>();
 
     @ManyToOne
     @JoinColumn(name = "member_id")
@@ -51,5 +51,11 @@ public class Order {
         order_items.add(orderItem);
         orderItem.setOrder(this);
     }
-
+    // 주문 취소
+    public void cancel() {
+        this.setOrder_status(OrderStatus.CANCEL);
+        for (OrderItem orderItem : order_items) {
+            orderItem.cancel();
+        }
+    }
 }

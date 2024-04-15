@@ -39,4 +39,7 @@ public class OrderItem {
     }
 
 
+    public void cancel() {
+        getItem().addStock(count);
+    }
 }
